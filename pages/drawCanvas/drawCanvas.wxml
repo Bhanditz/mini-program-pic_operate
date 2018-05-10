@@ -13,6 +13,7 @@
       <canvas canvas-id="{{canvasId}}" disable-scroll="true"
     style='width: {{c_w}}px;height:{{c_h}}px;'></canvas>
   </view>
+    <button wx-if="{{img}}" bindtap="clipImg">确定</button>
    <!--<button bindtap="saveToAlbum">获取图片</button>
 
     <canvas canvas-id="{{targetCanvasId}}" class="target_canvas"

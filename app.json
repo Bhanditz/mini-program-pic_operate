@@ -4,7 +4,7 @@
     "pages/index/index",
     "pages/drag/drag",
     "pages/dragdemo/dragdemo",
-    "pages/logs/logs"
+    "pages/show/show"
   ],
   "window": {
     "backgroundTextStyle": "light",

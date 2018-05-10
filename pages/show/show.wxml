@@ -1,0 +1,4 @@
+<!--pages/show/show.wxml-->
+<view class="container">
+    <image src="{{img}}" mode="aspectFit"></image>
+</view>

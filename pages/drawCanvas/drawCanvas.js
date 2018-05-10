@@ -1,4 +1,5 @@
 // pages/drawCanvas/drawCanvas.js
+const app = getApp();
 
 Page({
 
@@ -14,7 +15,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     animationData: {},
 
-    pixelRatio: 1,
+    pixelRatio: app.globalData.device.pixelRatio,
 
     canvasId: "preview",
     targetCanvasId: "target",
@@ -92,6 +93,17 @@ Page({
         })
       },
     })
+  },
+  clipImg(){
+    var _this = this;
+    wx.navigateTo({
+      url: "/pages/show/show?file=" + _this.data.img + "&scale=" + _this.data.newScale + "&t_x=" + _this.data.imgLeft + "&t_y=" + _this.data.imgTop + "&angle=" + _this.data.newAngle,
+      success(){
+        _this.setData({
+          img: ""
+        })
+      }
+    });
   },
 
   //事件处理函数
@@ -378,19 +390,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const self = this;
 
-    const context = wx.createCanvasContext(self.data.canvasId);
-    this.setData({
-      ctx: context
-    });
-    wx.getSystemInfo({
-      success: function (res) {
-        self.setData({
-          pixelRatio: res.pixelRatio
-        })
-      },
-    })
   },
 
   /**
@@ -404,7 +404,60 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    const self = this;
+
+    const context = wx.createCanvasContext(self.data.canvasId);
+    /**
+     * 页面回退刷新页面数据
+     * */
+    this.setData({
+      ctx: context,
+      img: "",
+      tempImg: "",
+      motto: 'Hello World',
+      userInfo: {},
+      hasUserInfo: false,
+      canIUse: wx.canIUse('button.open-type.getUserInfo'),
+      animationData: {},
+
+      pixelRatio: app.globalData.device.pixelRatio,
+
+      canvasId: "preview",
+      targetCanvasId: "target",
+      drawTarget: false,
+      c_w: 300,
+      c_h: 300,
+      t_c_w: 0,
+      t_c_h: 0,
+      imgLeft: 0,
+      imgTop: 0,
+      rectX: 0,
+      rectY: 0,
+      imgWidth: 0,
+      imgHeight: 0,
+      baseScale: 1,
+      baseWidth: 0,
+      baseHeight: 0,
+      scaleWidth: 0,
+      scaleHeight: 0,
+
+      scale: 2.5,
+      touches: [{
+        x: 0,
+        y: 0
+      }, {
+        x: 0,
+        y: 0
+      }],
+      toucheEventLen: 0,
+      oldDistance: 0,
+      oldScale: 1,
+      defaultAngle: 0,/*两指之间与x轴之间形成的角度*/
+      oldAngle: 0,
+      newDistance: 0,
+      newScale: 1,
+      newAngle: 0
+    });
   },
 
   /**
