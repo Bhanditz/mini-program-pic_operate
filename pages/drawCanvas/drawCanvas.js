@@ -227,8 +227,6 @@ Page({
     let scale = self.data.scale;
 
     var newScale = self.getNewScale(oldScale, oldDistance, touch0, touch1);
-    console.log(newScale);
-    newScale += self.data.oldScale;
     newScale <= 1 && (newScale = 1);
     newScale >= scale && (newScale = scale);
 
