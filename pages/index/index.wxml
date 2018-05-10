@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<!-- <import src="../cropper/we-cropper.wxml"/> -->
+<view class="container">
+  <view class="upload_btn" wx-if="{{!img}}" bindtap='chooseImage'>
+    <text>click here to upload a picture!</text>
+  </view>
+  <view class="operate_box" 
+            wx-if="{{img}}" 
+            style="width: {{c_w}}px; height: {{c_h}}px;"
+            bindtouchstart="touchStart"
+            bindtouchmove="touchMove"
+            bindtouchend="touchEnd">
+     <image src="{{img}}" mode="aspectFill" 
+            animation="{{animationData}}"
+            style="width: {{scaleWidth}}px; height: {{scaleHeight}}px;">
+    </image> 
+     <!-- <canvas canvas-id="preview" disable-scroll="true"
+    style='width: {{c_w}}rpx;height:{{c_h}}rpx;'></canvas>  -->
+  </view>
+  <!-- <button bindtap='getCropperImage'>获取图片</button> -->
+</view>

@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/drawCanvas/drawCanvas",
+    "pages/index/index",
+    "pages/drag/drag",
+    "pages/dragdemo/dragdemo",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

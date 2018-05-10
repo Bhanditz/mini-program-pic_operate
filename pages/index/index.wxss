@@ -1,0 +1,21 @@
+/**index.wxss**/
+.upload_btn{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.operate_box{
+  text-align: center;
+  margin: 100rpx auto 0;
+  overflow: hidden;
+  border: 1rpx solid #eee;
+  position: relative;
+}
+.operate_box image{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.operate_box canvas{
+  width: 100%;
+}

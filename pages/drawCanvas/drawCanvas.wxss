@@ -1,0 +1,24 @@
+/* pages/drawCanvas/drawCanvas.wxss */
+.drawCanvas{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.upload_btn{
+  width: 100%;
+  height: 500rpx;
+  text-align: center;
+}
+.operate_box{
+  text-align: center;
+  margin: 100rpx auto 0;
+  overflow: hidden;
+  border: 1rpx solid #eee;
+  position: relative;
+}
+.target_canvas{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: -1;
+}

@@ -1,0 +1,20 @@
+<!--drawCanvas.wxml-->
+<view class="container drawCanvas">
+  <view class="upload_btn" wx-if="{{!img}}" bindtap='chooseImage'>
+    <text>click here to upload a picture!</text>
+  </view>
+  <view class="operate_box" 
+            wx-if="{{img}}" 
+            style="width: {{c_w}}px; height: {{c_h}}px;"
+            bindtouchstart="touchStart"
+            bindtouchmove="touchMove"
+            bindtouchend="touchEnd">
+
+      <canvas canvas-id="{{canvasId}}" disable-scroll="true"
+    style='width: {{c_w}}px;height:{{c_h}}px;'></canvas>
+  </view>
+   <!--<button bindtap="saveToAlbum">获取图片</button>
+
+    <canvas canvas-id="{{targetCanvasId}}" class="target_canvas"
+            style="width: {{t_c_w}}px; height: {{t_c_h}}px" ></canvas>-->
+</view>
