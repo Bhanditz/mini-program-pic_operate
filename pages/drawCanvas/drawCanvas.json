@@ -1,3 +1,5 @@
 {
-  "disableScroll": true
+  "usingComponents": {
+    "cliper": "../../components/cliper/cliper"
+  }
 }

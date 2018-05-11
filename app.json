@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/drawCanvas/drawCanvas",
+    "pages/dragdemo/dragdemo",
     "pages/index/index",
     "pages/drag/drag",
-    "pages/dragdemo/dragdemo",
     "pages/show/show"
   ],
   "window": {

@@ -1,6 +1,6 @@
-<view class="container" style="height:{{screenHeight}}px;" >  
-    <view class="cnt">  
-        <image class="image-style" src="../../images/1.jpg" style="width:{{imgwidth}}px;height:{{imgheight}}px;"bindtouchstart="startEvent" bindtouchmove="moveEvent"bindload="imageLoad"animation="{{animationData}}"bindtouchend="endEvent">  
-        </image>  
-    </view>  
+<view class="container" style="height:{{screenHeight}}px;" >
+    <view class="cnt">
+        <image class="image-style" src="../../images/1.jpg" style="width:{{imgwidth}}px;height:{{imgheight}}px;"bindtouchstart="startEvent" bindtouchmove="moveEvent"bindload="imageLoad"animation="{{animationData}}"bindtouchend="endEvent">
+        </image>
+    </view>
 </view>

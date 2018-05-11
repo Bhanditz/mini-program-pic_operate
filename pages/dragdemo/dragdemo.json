@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "cliper": "../../components/cliper/cliper"
+  }
+}

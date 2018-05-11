@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    left: '',
-    top: ''
+    c_w: 300,
+    c_h: 300,
+    img: ""
   },
 
-  viewTouchMove: function (e) {
-    this.setData({
-      left: e.touches[0].clientX - 60,
-      top: e.touches[0].clientY - 60
+  chooseImage(){
+    var _this = this;
+
+    wx.chooseImage({
+      count: 1, // 默认9
+      sourceType: ['album', 'camera'],
+      success(res){
+        _this.setData({
+          img: res.tempFilePaths[0]
+        });
+      }
     })
   },
 

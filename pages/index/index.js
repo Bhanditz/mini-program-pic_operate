@@ -72,7 +72,6 @@ Page({
               scaleHeight: dHeight,
               baseScale: baseScale
             });
-            self.drawImage(self.data.ctx, res.tempFilePaths[0], dx, dy, dWidth, dHeight);
             
           }
         })
@@ -110,18 +109,7 @@ Page({
   },
 
   // common function
-  drawImage(ctx, src, dx, dy, dWidth, dHeight){
-    ctx.drawImage(src, dx, dy, dWidth, dHeight);
-    ctx.draw();
-  },
-  updateCanvas(){
-    var self = this;
-    if(self.data.ctx) {
-      self.drawImage(self.data.ctx, self.data.img, self.data.imgLeft, self.data.imgTop, self.data.scaleWidth, self.data.scaleHeight);
-    }
-  },
   updateImgPosition(){
-    console.log(this.data.imgLeft, this.data.imgTop);
     this.animation.translate(this.data.imgLeft, this.data.imgTop)
         .scale(this.data.newScale, this.data.newScale)
         .step();
@@ -163,7 +151,6 @@ Page({
     var self = this;
     var xMove, yMove;
 
-    console.log("one touch move");
     xMove = e.touches[0].clientX - this.data.touches[0].x;
     yMove = e.touches[0].clientY - this.data.touches[0].y;
 
@@ -175,9 +162,8 @@ Page({
       imgTop: imgTop
     });
 
-    // self.updateImgPosition();
+     self.updateImgPosition();
 
-    self.updateCanvas();
   },
   __twoTouchStart(touch0, touch1){
     var xMove, yMove, oldDistance;
@@ -231,20 +217,10 @@ Page({
 
   // 生命周期函数
   onShow(){
-    var animation = wx.createAnimation({
-      duration: 0,
-      timingFunction: 'linear',
-    });
-    this.animation = animation;
-
-    animation.scale(1,1).step()
-
-    this.setData({
-      animationData: animation.export()
-    })
   },
   onLoad(option) {
-    const self = this;
+    const _this = this;
+    let animation;
 
     const context = wx.createCanvasContext('preview');
     this.setData({
@@ -252,10 +228,22 @@ Page({
     });
     wx.getSystemInfo({
       success: function (res) {
-        self.setData({
+        _this.setData({
           pixelRatio: res.pixelRatio
         })
       },
+    });
+
+    animation = wx.createAnimation({
+      duration: 0,
+      timingFunction: 'linear'
+    });
+    _this.animation = animation;
+
+    animation.scale(1,1).translate(0,0).rotate(0).step();
+
+    _this.setData({
+      animationData: animation.export()
     })
 
   }

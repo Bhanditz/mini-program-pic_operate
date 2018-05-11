@@ -1,0 +1,19 @@
+<!--components/cliper/cliper.wxml-->
+<view class="cliper">
+    <view class="operate_box"
+
+          style="width: {{c_w}}px; height: {{c_h}}px;"
+          bindtouchstart="touchStart"
+          bindtouchmove="touchMove"
+          bindtouchend="touchEnd">
+
+        <image src="{{img}}" mode="aspectFit"
+               animation="{{animationData}}"
+               style='width: {{baseWidth}}px;height:{{baseHeight}}px;'></image>
+    </view>
+    <view class="target_wrapper">
+        <canvas canvas-id="{{targetCanvasId}}" style="width: {{baseWidth}}px; height: {{baseHeight}}px;"></canvas>
+    </view>
+    <button bindtap="save">保存到本地</button>
+</view>
+

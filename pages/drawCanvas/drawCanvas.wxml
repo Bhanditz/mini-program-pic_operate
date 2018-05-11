@@ -9,13 +9,13 @@
             bindtouchstart="touchStart"
             bindtouchmove="touchMove"
             bindtouchend="touchEnd">
-
       <canvas canvas-id="{{canvasId}}" disable-scroll="true"
     style='width: {{c_w}}px;height:{{c_h}}px;'></canvas>
   </view>
+    <!--<cliper img="{{img}}" c_w="{{c_w}}" c_h="{{c_h}}" bindclip="clip"></cliper>-->
+    <view class="target_wrapper">
+        <canvas canvas-id="{{targetCanvasId}}" style="width: {{baseWidth}}px; height: {{baseHeight}}px;"></canvas>
+    </view>
     <button wx-if="{{img}}" bindtap="clipImg">确定</button>
-   <!--<button bindtap="saveToAlbum">获取图片</button>
-
-    <canvas canvas-id="{{targetCanvasId}}" class="target_canvas"
-            style="width: {{t_c_w}}px; height: {{t_c_h}}px" ></canvas>-->
+    <button bindtap="saveToAlbum">保存到本地</button>
 </view>

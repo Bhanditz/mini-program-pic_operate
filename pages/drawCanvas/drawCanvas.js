@@ -9,11 +9,6 @@ Page({
   data: {
     img: "",
     tempImg: "",
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    animationData: {},
 
     pixelRatio: app.globalData.device.pixelRatio,
 
@@ -52,7 +47,9 @@ Page({
     oldAngle: 0,
     newDistance: 0,
     newScale: 1,
-    newAngle: 0
+    newAngle: 0,
+
+    targetImgUrl: ""
   },
 
   chooseImage: function () {
@@ -96,15 +93,49 @@ Page({
   },
   clipImg(){
     var _this = this;
+
     wx.navigateTo({
       url: "/pages/show/show?file=" + _this.data.img + "&scale=" + _this.data.newScale + "&t_x=" + _this.data.imgLeft + "&t_y=" + _this.data.imgTop + "&angle=" + _this.data.newAngle,
       success(){
+        /**
+        * 页面回退刷新页面数据
+        * */
         _this.setData({
-          img: ""
-        })
+          img: "",
+
+          drawTarget: false,
+          imgLeft: 0,
+          imgTop: 0,
+          rectX: 0,
+          rectY: 0,
+          imgWidth: 0,
+          imgHeight: 0,
+          baseScale: 1,
+          baseWidth: 0,
+          baseHeight: 0,
+          scaleWidth: 0,
+          scaleHeight: 0,
+
+          touches: [{
+            x: 0,
+            y: 0
+          }, {
+            x: 0,
+            y: 0
+          }],
+          toucheEventLen: 0,
+          oldDistance: 0,
+          oldScale: 1,
+          defaultAngle: 0,/*两指之间与x轴之间形成的角度*/
+          oldAngle: 0,
+          newDistance: 0,
+          newScale: 1,
+          newAngle: 0
+        });
       }
     });
   },
+  clip(data){},
 
   //事件处理函数
   saveToAlbum(){
@@ -130,7 +161,6 @@ Page({
         canvasId: canvasId,
         fileType: "jpg",
         success(res) {
-          console.log(res.tempFilePath);
           _this.saveImageToPhotosAlbum(res.tempFilePath);
         },
         fail(res) {
@@ -183,7 +213,7 @@ Page({
   touchEnd (e) {
 
     this.__xTouchEnd(e);
-    //this.drawTargetCanvas();
+    this.drawTargetCanvas();
   },
 
   // 手势事件
@@ -209,8 +239,6 @@ Page({
       imgLeft: imgLeft,
       imgTop: imgTop
     });
-
-    // self.updateImgPosition();
 
     self.updateCanvas();
   },
@@ -274,11 +302,13 @@ Page({
     var self = this;
 
     ctx.save();
-    //ctx.setTransform(1, 0, 0, 1, self.data.c_w/2+dx, self.data.c_h/2+dy);
+
     ctx.translate(self.data.c_w/2+dx, self.data.c_h/2+dy);
     ctx.rotate(self.data.newAngle * Math.PI / 180);
     ctx.drawImage(src, -dWidth / 2, -dHeight / 2, dWidth, dHeight);
+
     ctx.restore();
+
     ctx.draw();
   },
   drawTargetCanvas(done) {
@@ -390,7 +420,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const self = this;
 
+    const context = wx.createCanvasContext(self.data.canvasId);
+    this.setData({
+      ctx: context
+    });
   },
 
   /**
@@ -404,67 +439,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const self = this;
-
-    const context = wx.createCanvasContext(self.data.canvasId);
-    /**
-     * 页面回退刷新页面数据
-     * */
-    this.setData({
-      ctx: context,
-      img: "",
-      tempImg: "",
-      motto: 'Hello World',
-      userInfo: {},
-      hasUserInfo: false,
-      canIUse: wx.canIUse('button.open-type.getUserInfo'),
-      animationData: {},
-
-      pixelRatio: app.globalData.device.pixelRatio,
-
-      canvasId: "preview",
-      targetCanvasId: "target",
-      drawTarget: false,
-      c_w: 300,
-      c_h: 300,
-      t_c_w: 0,
-      t_c_h: 0,
-      imgLeft: 0,
-      imgTop: 0,
-      rectX: 0,
-      rectY: 0,
-      imgWidth: 0,
-      imgHeight: 0,
-      baseScale: 1,
-      baseWidth: 0,
-      baseHeight: 0,
-      scaleWidth: 0,
-      scaleHeight: 0,
-
-      scale: 2.5,
-      touches: [{
-        x: 0,
-        y: 0
-      }, {
-        x: 0,
-        y: 0
-      }],
-      toucheEventLen: 0,
-      oldDistance: 0,
-      oldScale: 1,
-      defaultAngle: 0,/*两指之间与x轴之间形成的角度*/
-      oldAngle: 0,
-      newDistance: 0,
-      newScale: 1,
-      newAngle: 0
-    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
   },
 
   /**

@@ -16,7 +16,10 @@
   border: 1rpx solid #eee;
   position: relative;
 }
-.target_canvas{
+.target_wrapper{
+  width: 0;
+  height: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 100%;
