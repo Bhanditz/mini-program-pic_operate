@@ -16,6 +16,6 @@
     <view class="target_wrapper">
         <canvas canvas-id="{{targetCanvasId}}" style="width: {{t_c_w}}px; height: {{t_c_h}}px;"></canvas>
     </view>
-    <button wx-if="{{img}}" bindtap="clipImg">确定</button>
+    <!--<button wx-if="{{img}}" bindtap="clipImg">确定</button>-->
     <button bindtap="saveToAlbum">保存到本地</button>
 </view>

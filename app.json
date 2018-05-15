@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/drawCanvas/drawCanvas",
     "pages/dragdemo/dragdemo",
+    "pages/drawCanvas/drawCanvas",
     "pages/index/index",
     "pages/drag/drag",
     "pages/show/show"
