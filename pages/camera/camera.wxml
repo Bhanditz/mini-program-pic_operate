@@ -1,0 +1,5 @@
+<!--pages/camera/camera.wxml-->
+<view class="cam_wrapper" id="camera">
+    <span>哇啊</span>
+    <view class="icon"></view>
+</view>

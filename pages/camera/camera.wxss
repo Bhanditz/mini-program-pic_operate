@@ -1,0 +1,5 @@
+/* pages/camera/camera.wxss */
+.cam_wrapper{
+  width:  100%;
+  min-height: 100%;
+}

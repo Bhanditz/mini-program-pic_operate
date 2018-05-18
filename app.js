@@ -42,11 +42,11 @@ App({
       }
     });
 
-    wx.getUserInfo({
+    /*wx.getUserInfo({
       success(res){
         console.log(res);
       }
-    })
+    })*/
   },
   globalData: {
     userInfo: null,

@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/camera/camera",
+    "pages/index/index",
     "pages/drawCanvas/drawCanvas",
     "pages/userLogin/userLogin",
     "pages/dragdemo/dragdemo",
-    "pages/index/index",
     "pages/drag/drag",
     "pages/show/show"
   ],
