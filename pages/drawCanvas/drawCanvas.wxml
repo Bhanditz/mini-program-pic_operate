@@ -12,7 +12,6 @@
       <canvas canvas-id="{{canvasId}}" disable-scroll="true"
     style='width: {{c_w}}px;height:{{c_h}}px;'></canvas>
   </view>
-    <!--<cliper img="{{img}}" c_w="{{c_w}}" c_h="{{c_h}}" bindclip="clip"></cliper>-->
     <view class="target_wrapper">
         <canvas canvas-id="{{targetCanvasId}}" style="width: {{baseWidth}}px; height: {{baseHeight}}px;"></canvas>
     </view>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/drawCanvas/drawCanvas",
+    "pages/userLogin/userLogin",
     "pages/dragdemo/dragdemo",
     "pages/index/index",
     "pages/drag/drag",

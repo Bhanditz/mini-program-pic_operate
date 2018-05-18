@@ -40,6 +40,12 @@ App({
       success(res) {
         _this.globalData.device = res;
       }
+    });
+
+    wx.getUserInfo({
+      success(res){
+        console.log(res);
+      }
     })
   },
   globalData: {

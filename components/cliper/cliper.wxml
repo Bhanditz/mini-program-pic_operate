@@ -14,6 +14,6 @@
     <view class="target_wrapper">
         <canvas canvas-id="{{targetCanvasId}}" style="width: {{baseWidth}}px; height: {{baseHeight}}px;"></canvas>
     </view>
-    <button bindtap="save">保存到本地</button>
+    <button bindtap="save">淇濆瓨</button>
 </view>
 
