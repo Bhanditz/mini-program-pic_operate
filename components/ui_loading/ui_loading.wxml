@@ -1,0 +1,5 @@
+<!--components/ui_loading/ui_loading.wxml-->
+<view class="loading">
+    <view class="loading_round"></view>
+    <view class="loading_animate"></view>
+</view>

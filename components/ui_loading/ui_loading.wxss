@@ -1,0 +1,37 @@
+/* components/ui_loading/ui_loading.wxss */
+.loading{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 40rpx;
+  background: rgba(255, 255, 255, .8);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -150rpx 0 0 -150rpx;
+}
+.loading .loading_round,
+.loading .loading_animate{
+  width: 150rpx;
+  height: 150rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -75rpx 0 0 -75rpx;
+}
+.loading .loading_animate{
+  boder-color: transparent;
+  border-top-color: #ee7e96;
+
+  animation: loading 1.3s linear infinite;
+}
+
+@keyframes loading {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

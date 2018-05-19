@@ -1,5 +1,18 @@
 <!--pages/camera/camera.wxml-->
 <view class="cam_wrapper" id="camera">
-    <span>哇啊</span>
-    <view class="icon"></view>
+    <view class="slogan">美人相机</view>
+
+    <!--上传图片按钮-->
+    <view class="choose_btn_box">
+        <view class="select_btn" bindtap="fn_chooseImg">
+            <image src="../../images/icon_camera_42x42.png" mode="aspectFill" class="icon icon_camera"></image>
+        </view>
+        <text>上传照片</text>
+    </view>
+
+
+    <view>
+        <ui_loading loading="{{loading}}" wx:if="{{loading}}"></ui_loading>
+    </view>
+
 </view>

@@ -1,1 +1,9 @@
-{}
+{
+  "navigationBarBackgroundColor": "#fad1cb",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "美人相机",
+
+  "usingComponents": {
+    "ui_loading": "/components/ui_loading/ui_loading"
+  }
+}
