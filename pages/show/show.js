@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: ""
+    img: "../../images/1.jpg",
+    sum: 11,
+    cur: 0
   },
 
   /**
@@ -16,12 +18,16 @@ Page({
     var _this = this;
 
     _this.setData({
+      img: options.file
+    });
+
+    /*_this.setData({
       img: options.file,
       t_x: options.t_x,
       t_y: options.t_y,
       angle: options.angle,
       scale: options.scale
-    })
+    });*/
   },
 
   /**

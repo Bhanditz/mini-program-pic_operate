@@ -1,1 +1,55 @@
 /* pages/show/show.wxss */
+.show_page{
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at bottom, #fff 50%, #ee7691 50%);
+  overflow: hidden;
+  position: relative;
+}
+.show_page .index{
+  text-align: center;
+  margin: 50rpx 0 24rpx;
+}
+.show_page .show_example{
+  width: 80%;
+  height: 800rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  background: #fff;
+  -webkit-box-shadow: 0 10rpx 10rpx #ee7691;
+  -moz-box-shadow: 0 10rpx 10rpx #ee7691;
+  box-shadow: 0 10rpx 10rpx #ee7691;
+}
+.show_page .show_example image{
+  width: 100%;
+  height: 100%;
+}
+
+.show_page .btn_group{
+  color: #aaa;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  bottom: 50rpx;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+.show_page .btn_group .iconfont{
+  font-size: 60rpx;
+}
+.show_page .btn_group .btn_refresh{
+  width: 150rpx;
+  height: 150rpx;
+  text-align: center;
+  line-height: 150rpx;
+  border-radius: 50%;
+  background: #ee7e96;
+  margin-top: -80rpx;
+}
+.show_page .btn_group .btn_refresh .iconfont{
+  color: #fff;
+
+}

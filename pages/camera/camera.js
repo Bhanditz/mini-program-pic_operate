@@ -27,11 +27,12 @@ Page({
           img: res.tempFilePaths[0],
           loading: true
         });
+        _this.fn_navigateToShow();
 
         _this.fn_uploadfile({
           filePath: res.tempFilePaths[0],
           success: function (res){
-
+            _this.fn_navigateToShow();
           },
           fail: function (res){
             console.log(res)
@@ -58,7 +59,20 @@ Page({
 
     wx.uploadFile(_.extend(default_opt, opt, true))
   },
+  /*跳转到展示页*/
+  fn_navigateToShow(){
+    var _this = this;
 
+    wx.navigateTo({
+      url: "/pages/show/show?file="+_this.img,
+      success(){
+        _this.setData({
+          img: "",
+          loading: false
+        })
+      }
+    })
+  },
 
 
   /**
@@ -79,7 +93,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad()
+    // this.onLoad()
   },
 
   /**

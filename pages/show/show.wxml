@@ -1,4 +1,23 @@
 <!--pages/show/show.wxml-->
-<view class="container">
-    <image src="{{img}}" mode="aspectFit"></image>
+<view class="container show_page">
+    <view class="index">
+        <text>{{cur+1}}</text>
+        <text>/</text>
+        <text>{{sum}}</text>
+    </view>
+    <view class="show_example">
+        <image src="{{img}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="btn_group">
+        <view class="btn">
+            <text class="iconfont icon-xiazai"></text>
+        </view>
+        <view class="btn btn_refresh">
+            <text class="iconfont icon-huanyihuan"></text>
+        </view>
+        <view class="btn">
+            <text class="iconfont icon-fenxiang"></text>
+        </view>
+    </view>
 </view>
