@@ -16,8 +16,8 @@
         <view class="btn btn_refresh">
             <text class="iconfont icon-huanyihuan"></text>
         </view>
-        <view class="btn">
+        <button open-type="share" class="btn btn_share">
             <text class="iconfont icon-fenxiang"></text>
-        </view>
+        </button>
     </view>
 </view>

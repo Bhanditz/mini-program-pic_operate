@@ -27,7 +27,7 @@
 }
 
 .show_page .btn_group{
-  color: #aaa;
+  color: #000;
   display: -webkit-flex; /* Safari */
   display: flex;
   justify-content: space-around;
@@ -40,6 +40,17 @@
 .show_page .btn_group .iconfont{
   font-size: 60rpx;
 }
+.show_page .btn_group .btn_share{
+  background: transparent;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0;
+  margin: 0;
+}
+.show_page .btn_group .btn_share::after{
+  border: none;
+}
 .show_page .btn_group .btn_refresh{
   width: 150rpx;
   height: 150rpx;
@@ -51,5 +62,4 @@
 }
 .show_page .btn_group .btn_refresh .iconfont{
   color: #fff;
-
 }
