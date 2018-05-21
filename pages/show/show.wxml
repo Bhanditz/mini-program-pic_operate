@@ -6,18 +6,22 @@
         <text>{{sum}}</text>
     </view>
     <view class="show_example">
-        <image src="{{img}}" mode="aspectFit"></image>
+        <image src="{{imgs[cur]}}" mode="aspectFit"></image>
     </view>
 
     <view class="btn_group">
-        <view class="btn">
+        <button class="btn" bindtap="fn_saveToAlbum">
             <text class="iconfont icon-xiazai"></text>
-        </view>
-        <view class="btn btn_refresh">
+        </button>
+        <button class="btn btn_refresh" bindtap="fn_change">
             <text class="iconfont icon-huanyihuan"></text>
-        </view>
+        </button>
         <button open-type="share" class="btn btn_share">
             <text class="iconfont icon-fenxiang"></text>
         </button>
+    </view>
+
+    <view class="tmp_canvas">
+        <canvas canvas-id="tmp" style="width: {{img_w}}px; height: {{img_h}}px;"></canvas>
     </view>
 </view>

@@ -6,12 +6,112 @@ Page({
    */
   data: {
     img: "../../images/1.jpg",
-    sum: 11,
-    cur: 0
+    sum: 4,
+    cur: 0,
+    imgs: ["../../images/1.jpg", "../../images/2.jpg", "../../images/3.jpg", "../../images/4.jpg"],
+
+    img_w: 0,
+    img_h: 0
   },
 
-  fn_saveToAlbum(){},
-  fn_change(){},
+  fn_saveToAlbum(){
+    var _this = this;
+
+    _this.canvasToTempFile("tmp");
+
+    wx.saveImageToPhotosAlbum({
+      filePath: _this.data.imgs[_this.data.cur],
+      success(res){
+        console.log(res);
+        wx.showToast({
+          title: "图片已保存在",
+          icon: "none",
+          duration: 1500
+        });
+      },
+      fail(){
+        wx.showToast({
+          title: "图片保存失败",
+          icon: "none"
+        })
+      },
+      complete(msg){
+        console.log(msg)
+      }
+    })
+
+    /*wx.downloadFile({
+      url: _this.data.imgs[_this.data.cur],
+      success(res){
+        wx.saveFile({
+          tempFilePath: res.tempFilePath,
+          success(res){
+            wx.showToast({
+              title: "图片已保存在"+res.savedFilePath,
+              icon: "none",
+              duration: 1500
+            });
+          },
+          fail(){
+            wx.showToast({
+              title: "图片保存失败",
+              icon: "none"
+            })
+          }
+        })
+      }
+    })*/
+  },
+  fn_change(){
+    var _this = this;
+
+    var cur = ++_this.data.cur;
+
+    _this.setData({
+      cur: cur >= _this.data.imgs.length ? 0 : cur
+    });
+  },
+  get_imgBouningClientRect(img){
+    if(!img) return;
+
+    var _this = this;
+
+    wx.getImageInfo({
+      src: img,
+      success(res){
+        _this.setData({
+          img_w: res.width,
+          img_h: res.height
+        });
+      }
+    })
+  },
+  canvasToTempFile(canvasId){
+    var _this = this;
+
+    if(_this.data.drawTarget){
+      draw();
+    }
+    else {
+      _this.drawTargetCanvas(draw);
+    }
+
+    function draw(){
+      wx.canvasToTempFilePath({
+        width: _this.data.imgWidth,
+        height: _this.data.imgHeight,
+        canvasId: canvasId,
+        fileType: "jpg",
+        success(res) {
+          _this.saveImageToPhotosAlbum(res.tempFilePath);
+        },
+        fail(res) {
+          console.log(res);
+        }
+      })
+    }
+
+  },
 
   /**
    * 生命周期函数--监听页面加载
