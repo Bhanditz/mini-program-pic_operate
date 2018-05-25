@@ -17,9 +17,9 @@
   margin: 0 auto;
   border-radius: 20rpx;
   background: #fff;
-  -webkit-box-shadow: 0 10rpx 10rpx #ee7691;
-  -moz-box-shadow: 0 10rpx 10rpx #ee7691;
-  box-shadow: 0 10rpx 10rpx #ee7691;
+  -webkit-box-shadow: 0 10rpx 10rpx rgba(225,50,108,.6);
+  -moz-box-shadow: 0 10rpx 10rpx rgba(225,50,108,.6);
+  box-shadow: 0 10rpx 10rpx rgba(225,50,108,.6);
 }
 .show_page .show_example image{
   width: 100%;

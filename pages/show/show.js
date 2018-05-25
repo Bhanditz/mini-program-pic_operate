@@ -1,17 +1,42 @@
 // pages/show/show.js
+const sysInfo = "";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    animationData: {},
     img: "../../images/1.jpg",
     sum: 4,
     cur: 0,
-    imgs: ["../../images/1.jpg", "../../images/2.jpg", "../../images/3.jpg", "../../images/4.jpg"],
+    //imgs: ["../../images/1.jpg", "../../images/2.jpg", "../../images/3.jpg", "../../images/4.jpg"],
+    imgs: [
+      {
+        url: "../../images/1.jpg",
+        width: 0,
+        height: 0,
+      },
+      {
+        url: "../../images/2.jpg",
+        width: 0,
+        height: 0
+      },
+      {
+        url: "../../images/3.jpg",
+        width: 0,
+        height: 0
+      },
+      {
+        url: "../../images/4.jpg",
+        width: 0,
+        height: 0
+      }
+    ],
 
-    img_w: 0,
-    img_h: 0
+    max_width: 600,
+    max_height: 800
   },
 
   fn_saveToAlbum(){
@@ -38,7 +63,7 @@ Page({
       complete(msg){
         console.log(msg)
       }
-    })
+    });
 
     /*wx.downloadFile({
       url: _this.data.imgs[_this.data.cur],
@@ -70,6 +95,8 @@ Page({
     _this.setData({
       cur: cur >= _this.data.imgs.length ? 0 : cur
     });
+
+    _this.get_imgBouningClientRect(_this.data.imgs[cur].url);
   },
   get_imgBouningClientRect(img){
     if(!img) return;
@@ -79,10 +106,13 @@ Page({
     wx.getImageInfo({
       src: img,
       success(res){
-        _this.setData({
-          img_w: res.width,
-          img_h: res.height
-        });
+        var key_w = "imgs["+cur+"]width",
+            key_h = "imgs["+cur+"]height";
+        var data = {};
+
+        data[key_w] = res.width;
+        data[key_h] = res.height;
+        _this.setData(data);
       }
     })
   },
@@ -119,10 +149,20 @@ Page({
   onLoad: function (options) {
     console.log(options);
     var _this = this;
+    var animation;
 
     _this.setData({
       img: options.file
     });
+
+    animation = wx.createAnimation({
+      duration: 500,
+      timeFunction: "ease"
+    });
+
+    _this.animation = animation;
+
+    animation.rotate(360).step()
 
     /*_this.setData({
       img: options.file,

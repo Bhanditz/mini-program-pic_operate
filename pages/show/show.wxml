@@ -5,15 +5,15 @@
         <text>/</text>
         <text>{{sum}}</text>
     </view>
-    <view class="show_example">
-        <image src="{{imgs[cur]}}" mode="aspectFit"></image>
+    <view class="show_example" style="">
+        <image src="{{imgs[cur].url}}" mode="aspectFit"></image>
     </view>
 
     <view class="btn_group">
         <button class="btn" bindtap="fn_saveToAlbum">
             <text class="iconfont icon-xiazai"></text>
         </button>
-        <button class="btn btn_refresh" bindtap="fn_change">
+        <button class="btn btn_refresh" animation="{{animationData}}" bindtap="fn_change">
             <text class="iconfont icon-huanyihuan"></text>
         </button>
         <button open-type="share" class="btn btn_share">
